@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firestore</title>
+</head>
+<body>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB5h4bdn4ZGYqu1ZWStubGrZd9klpdW8FQ",
+            authDomain: "firestore-2192d.firebaseapp.com",
+            projectId: "firestore-2192d",
+            storageBucket: "firestore-2192d.firebasestorage.app",
+            messagingSenderId: "562496366842",
+            appId: "1:562496366842:web:7062892b5f11f091a88143",
+            measurementId: "G-4LQ86LBNQF"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function addPersonToDB() {
+            try {
+                const docRef = await addDoc(collection(db, "people"), {
+                    first: "Affan",
+                    last: "Ali",
+                    born: 2001
+                });
+                console.log("Document written with ID: ", docRef.id);
+            } catch (error) {
+                console.error("Error adding document: ", error);
+            }
+        }
+            try {
+                const docRef = await addDoc(collection(db, "people"), {
+                    first: "Muhammad",
+                    last: "Aman",
+                    born: 2000
+                });
+                console.log("Document written with ID: ", docRef.id);
+            } catch (error) {
+                console.error("Error adding document: ", error);
+        }
+        try {
+                const docRef = await addDoc(collection(db, "people"), {
+                    first: "Abdul ",
+                    last: "Muizz",
+                    born: 2003
+                });
+                console.log("Document written with ID: ", docRef.id);
+            } catch (error) {
+                console.error("Error adding document: ", error);
+            }
+        addPersonToDB();
+    </script>
+</body>
+</html>
